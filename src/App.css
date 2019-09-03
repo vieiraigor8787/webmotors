@@ -5,7 +5,7 @@ body {
 .container.main{
     max-width: 1024px;
     width: 100%;
-    padding: 0 30px;
+    padding: 0 30px 25px;
 }
 
 .container {
@@ -19,7 +19,7 @@ body {
 }
 
 p a.advanced-search{
-    color: #e04006;
+    color: #dc3545;
     font-weight: bold
 }
 p a.filter{
@@ -33,7 +33,7 @@ p a:hover{
 
 li.nav-item:active,
 li.nav-item:visited{
-    border-bottom: 3px solid red
+    border-bottom: 3px solid #dc3545
 }
 img.car{
     width: 4em  
@@ -48,7 +48,7 @@ li a:hover {
 }
 
 li:active span, li:visited span, li:hover span{
-    color:red
+    color:#dc3545
 }
 li a span{
     font-size: 1.3em;
@@ -64,13 +64,23 @@ button.btn-outline-warning:hover{
     color: #fff
 }
 
+button.btn-danger{
+    padding: 0 80px;
+    border-radius: 0;
+    font-weight: bold;
+    font-size: .9em
+}
+a.filter:hover {
+    color: #000
+}
+
 div.form{
     background-color: #fff
 }
 
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before,
 .custom-checkbox .custom-control-input:checked~.custom-control-label::after {
-    background-color: red
+    background-color: #dc3545
 }
 .custom-control-label::before{
     background-color: #ffffff;

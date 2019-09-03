@@ -3,7 +3,7 @@ import carro from '../../assets/imgs/icone-carro.png'
 import moto from '../../assets/imgs/motorcycle-64.png'
 
 const Menu = () => (
-    <nav className="navbar navbar-expand-lg">
+    <nav className="navbar navbar-expand-lg pb-0">
         <ul className="navbar-nav mr-auto">
             <li className="nav-item d-flex mr-2">
                 <img src={carro} className="car"/>
