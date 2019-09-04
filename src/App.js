@@ -8,13 +8,25 @@ import './App.css';
 class App extends Component {
 
   state = {
-    isLoading: true,
     models: [],
-    error: null
+    makes: [],
+    versions: []
+  }
+
+  fetchMakes() {
+    fetch(`http://desafioonline.webmotors.com.br/api/OnlineChallenge/Make`)
+      .then(response => response.json())
+      .then(data =>
+        this.setState({
+          makes: data,
+          isLoading: false,
+        })
+      )
+      .catch(error => this.setState({ error, isLoading: false }));
   }
 
   fetchModels() {
-    fetch(`http://desafioonline.webmotors.com.br/api/OnlineChallenge/Model?MakeID=1`)
+    fetch(`http://desafioonline.webmotors.com.br/api/OnlineChallenge/Vehicles?Page=1`)
       .then(response => response.json())
       .then(data =>
         this.setState({
@@ -25,12 +37,26 @@ class App extends Component {
       .catch(error => this.setState({ error, isLoading: false }));
   }
 
+  fetchVersion() {
+    fetch(`http://desafioonline.webmotors.com.br/api/OnlineChallenge/Version?ModelID=1`)
+      .then(response => response.json())
+      .then(data =>
+        this.setState({
+          versions: data,
+          isLoading: false,
+        })
+      )
+      .catch(error => this.setState({ error, isLoading: false }));
+  }
+
   componentDidMount() {
     this.fetchModels();
+    this.fetchMakes();
+    this.fetchVersion();
   }
 
 render() {
-  const { models } = this.state;
+  const { models, makes, versions } = this.state;
 
   return (
     <div className="container main">
@@ -62,16 +88,21 @@ render() {
             <option defaultValue="3">Mais de 200km</option>
         </select>
         <select className="custom-select col-md-3 ml-2">
-            <option selected>Marcas</option>
-            <option defaultValue="1">20Km</option>
+          <option selected>Marcas</option>
+          {makes.map(make => {
+            const { ID, Name } = make
+            return(
+            <option key={ID} defaultValue={Name}>{Name}</option>
+            )
+          })}
         </select>
         <select className="custom-select col-md-3 ml-2">
           <option selected>Modelo</option>
-            {models.map(model => {
-            const { ID, Name } = model
+          {models.map(model => {
+            const { ID, Model } = model
             return(
-          <option key={ID} defaultValue={Name}>{Name}</option>
-          )
+            <option key={ID} defaultValue={Model}>{Model}</option>
+            )
           })}
         </select>
     </div>
@@ -91,10 +122,13 @@ render() {
                 <option defaultValue="3">Mais de R$ R$51.000</option>
             </select>
             <select className="custom-select col-md-6 ">
-                <option selected>Ano desejado</option>
-                <option defaultValue="1">2000</option>
-                <option defaultValue="2">2010</option>
-                <option defaultValue="3">2011</option>
+              <option selected>Versão</option>
+              {versions.map(version => {
+                const { ID, Name } = version
+                return(
+                <option key={ID} defaultValue={Name}>{Name}</option>
+                )
+              })}
             </select> 
         </div>
 
