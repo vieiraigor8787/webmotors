@@ -31,8 +31,8 @@ p a:hover{
     color: #4d4d4d
 }
 
-li.nav-item:active,
-li.nav-item:visited{
+
+li.nav-item:focus-within{
     border-bottom: 3px solid #dc3545
 }
 img.car{
