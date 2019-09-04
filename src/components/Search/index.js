@@ -1,58 +1,60 @@
 import React from "react";
 
-const Search = () => (
+const Search = ({ models }) => (
     <div className="container form">
-        <div class="custom-control-inline custom-checkbox ml-5">
-            <input class="custom-control-input" type="checkbox" name="new" id="new" value="new" />
-            <label class="custom-control-label" for="new"> Novos </label>
+        <div className="custom-control-inline custom-checkbox ml-5">
+            <input className="custom-control-input" type="checkbox" name="new" id="new" defaultValue="new" />
+            <label className="custom-control-label" htmlFor="new"> Novos </label>
         </div>
-        <div class="custom-control-inline custom-checkbox ml-5 mb-3">
-            <input class="custom-control-input" type="checkbox" name="used" id="used" value="used" />
-            <label class="custom-control-label" for="used"> Usados </label>
+        <div className="custom-control-inline custom-checkbox ml-5 mb-3">
+            <input className="custom-control-input" type="checkbox" name="used" id="used" defaultValue="used" />
+            <label className="custom-control-label" htmlFor="used"> Usados </label>
         </div>
-    <div class="input-group mb-3 row px-3">
-        <select class="custom-select col-md-4">
+    <div className="input-group mb-3 row px-3">
+        <select className="custom-select col-md-4">
             <option selected>Onde: São Paulo - SP</option>
-            <option value="1">Um</option>
-            <option value="2">Dois</option>
-            <option value="3">Três</option>
+            <option defaultValue="1">Um</option>
+            <option defaultValue="2">Dois</option>
+            <option defaultValue="3">Três</option>
         </select>
-        <select class="custom-select col-md-2">
+        <select className="custom-select col-md-2">
             <option selected>Raio: 100km</option>
-            <option value="1">20Km</option>
-            <option value="2">50km</option>
-            <option value="3">200km</option>
-            <option value="3">Mais de 200km</option>
+            <option defaultValue="1">20Km</option>
+            <option defaultValue="2">50km</option>
+            <option defaultValue="3">200km</option>
+            <option defaultValue="3">Mais de 200km</option>
         </select>
-        <select class="custom-select col-md-3 ml-2">
+        <select className="custom-select col-md-3 ml-2">
             <option selected>Marcas</option>
-            <option value="1">20Km</option>
+            <option defaultValue="1">20Km</option>
         </select>
-        <select class="custom-select col-md-3 ml-2">
+        <select className="custom-select col-md-3 ml-2">
             <option selected>Modelo</option>
-            <option value="1">20Km</option>
+            {models.map(model => (
+            <option defaultValue={model.Name}></option>
+            ))}
         </select>
     </div>
-       <div class="input-group row px-3">
-            <select class="custom-select col-md-2">
+       <div className="input-group row px-3">
+            <select className="custom-select col-md-2">
                 <option selected>Ano desejado</option>
-                <option value="1">2000</option>
-                <option value="2">2010</option>
-                <option value="3">2011</option>
+                <option defaultValue="1">2000</option>
+                <option defaultValue="2">2010</option>
+                <option defaultValue="3">2011</option>
             </select> 
-            <select class="custom-select col-md-4 mx-2">
+            <select className="custom-select col-md-4 mx-2">
                 <option selected>Faixa de preço</option>
-                <option value="1">R$10.000 a R$15.000</option>
-                <option value="2">R$16.000 a R$20.000</option>
-                <option value="3">R$21.000 a R$30.000</option>
-                <option value="3">R$31.000 a R$50.000</option>
-                <option value="3">Mais de R$ R$51.000</option>
+                <option defaultValue="1">R$10.000 a R$15.000</option>
+                <option defaultValue="2">R$16.000 a R$20.000</option>
+                <option defaultValue="3">R$21.000 a R$30.000</option>
+                <option defaultValue="3">R$31.000 a R$50.000</option>
+                <option defaultValue="3">Mais de R$ R$51.000</option>
             </select>
-            <select class="custom-select col-md-6 ">
+            <select className="custom-select col-md-6 ">
                 <option selected>Ano desejado</option>
-                <option value="1">2000</option>
-                <option value="2">2010</option>
-                <option value="3">2011</option>
+                <option defaultValue="1">2000</option>
+                <option defaultValue="2">2010</option>
+                <option defaultValue="3">2011</option>
             </select> 
         </div>
 
